@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이상형 월드컵</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/resources/css/styles.css" />
+  </head>
+  <body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">이상형 월드컵</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <!-- 아직 미완성 -->
+              <!-- <a class="nav-link" href="#ranking">랭킹</a> -->
+            </li>
+            <li class="nav-item">
+              <!-- 아직 미완성 -->
+              <!-- <a class="nav-link" href="#contact">문의</a> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 현재 라운드 표시 -->
+    <div class="round-info" id="round-info"></div>
+
+    <!-- 카드 선택 영역 -->
+    <div class="card-container" id="card-container">
+      <div class="card" onclick="selectItem(0)">
+        <iframe
+          class="youtube-player"
+          src="https://www.youtube.com/embed/?enablejsapi=1"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+        <div class="card-body text-center">
+          <h5 class="card-title" id="item-title-0"></h5>
+        </div>
+      </div>
+      <div class="card" onclick="selectItem(1)">
+        <iframe
+          class="youtube-player"
+          src="https://www.youtube.com/embed/?enablejsapi=1"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+        <div class="card-body text-center">
+          <h5 class="card-title" id="item-title-1"></h5>
+        </div>
+      </div>
+    </div>
+
+    <script src="/src/worldcup.js"></script>
+  </body>
+</html>

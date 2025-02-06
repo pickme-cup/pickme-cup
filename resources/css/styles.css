@@ -1,0 +1,159 @@
+body {
+  padding-top: 70px;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 45%;
+  height: 70vh;
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-title {
+  font-size: 3vh;
+}
+iframe {
+  width: 100%;
+  height: 60vh;
+}
+.navbar-custom {
+  background-color: #90ee90 !important;
+}
+.round-info {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin: 20px 0;
+  margin-bottom: 50px;
+}
+
+/* 선택된 아이템 애니메이션 (확대 효과) */
+@keyframes enlarge {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1); /* 선택된 아이템을 1.2배로 확대 */
+  }
+}
+
+/* 선택되지 않은 아이템 애니메이션 (페이드 아웃 효과) */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0; /* 선택되지 않은 아이템은 사라지게 */
+  }
+}
+
+/* 선택된 아이템에 적용할 클래스 */
+.selected {
+  animation: enlarge 0.5s ease-in-out forwards;
+}
+
+/* 선택되지 않은 아이템에 적용할 클래스 */
+.unselected {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* 우승자 페이지 */
+.winner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+  padding: 20px;
+  gap: 30px;
+}
+
+.winner-video {
+  width: 50%;
+  height: 70vh;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.winner-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.winner-description {
+  width: 45%;
+}
+
+.winner-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.winner-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  letter-spacing: 0.5px;
+}
+
+/* 화면 크기에 따라 반응형 디자인 */
+@media (max-width: 768px) {
+  .winner-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .winner-video,
+  .winner-description {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .winner-title {
+    text-align: center;
+  }
+}
+
+/* 홈 화면으로 돌아가는 버튼 스타일 */
+.back-home-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-home-btn {
+  padding: 12px 25px;
+  background-color: #4caf50; /* Modern green button color */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05); /* Subtle scaling effect on hover */
+}
+
+.back-home-btn:active {
+  background-color: #3e8e41;
+}
