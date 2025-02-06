@@ -123,7 +123,7 @@ function selectItem(index) {
 async function readItems() {
   console.log("txt 파일 로드 준비");
   try {
-    const response = await fetch("./link_list.txt");
+    const response = await fetch("link_list.txt");
     const data = await response.text();
     const _Items = parseItems(data);
 
