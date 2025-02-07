@@ -81,6 +81,7 @@ function displayNextPair() {
   updateRoundInfo();
 }
 
+// 아이템 선택시 처리 함수
 function selectItem(index) {
   // 다른 플레이어의 영상이 재생 중이면 정지시킴
   players.forEach((player, i) => {
