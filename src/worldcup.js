@@ -44,8 +44,8 @@
   /**
    * 우승 시 페이지를 새로고침합니다.
    */
-  function winner() {
-    location.reload();
+  function winner(item) {
+    location.href = `../resources/templates/winner.html?title=${item.title}&youtubeLink=${item.youtubeLink}`;
   }
 
   /**
@@ -56,8 +56,8 @@
   function displayNextPair() {
     if (items.length < 2) {
       if (currentRound === 1) {
-        alert("최종 승자: " + items[0].title);
-        winner();
+        alert(`🏆 우승! ${items[0].title} 🎉`);
+        winner(items[0]);
         return;
       } else {
         items = shuffleArray(items);

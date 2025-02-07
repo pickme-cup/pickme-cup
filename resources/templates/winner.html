@@ -8,13 +8,25 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- 경로 수정 필요함 -->
-    <link rel="stylesheet" href="pickme_cup/resources/css/styles.css" />
+
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">이상형 월드컵</a>
+        <a
+          class="navbar-brand d-flex align-items-center gap-3"
+          href="/pickme_cup/"
+        >
+          <img
+            class="navbar-title-image rounded-circle"
+            src="../pickme_og.jpeg"
+            alt="Logo"
+            width="50"
+            height="50"
+          />
+          <span class="fw-bold">이상형 월드컵</span>
+        </a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
@@ -34,7 +46,7 @@
     <div class="winner-container">
       <div class="winner-video">
         <iframe
-          class="winner-iframe"
+          class="youtube-player"
           src="https://www.youtube.com/embed/?enablejsapi=1"
           frameborder="0"
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -42,17 +54,22 @@
         ></iframe>
       </div>
       <div class="winner-description">
-        <h2 class="winner-title">우승자: 우승자 이름</h2>
-        <p class="winner-text">
-          우승자에 대한 소개 글을 여기에 작성합니다. 이 글은 우승자가 어떻게
-          경기를 진행했는지, 어떤 특징이 있었는지, 그리고 어떤 이유로 우승했는지
-          설명할 수 있습니다. 이 부분에 대한 상세한 설명을 추가하세요.
-        </p>
-        <!-- 홈 화면으로 돌아가는 버튼 -->
+        <h2 class="winner-title text-center"></h2>
+        <div class="winner-content">
+          <div class="spinner-container">
+            <div class="spinner-border text-success" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          <p class="winner-text text-center"></p>
+        </div>
         <div class="back-home-container">
-          <a href="/pickme_cup" class="back-home-btn">홈 화면으로 돌아가기</a>
+          <a href="/pickme_cup/" class="back-home-btn">돌아가기</a>
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../src/winner.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
   </body>
 </html>

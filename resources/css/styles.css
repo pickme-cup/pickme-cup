@@ -61,6 +61,16 @@ iframe {
   }
 }
 
+/* 페이드인 애니메이션 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /* 선택된 아이템에 적용할 클래스 */
 .selected {
   animation: enlarge 0.5s ease-in-out forwards;
@@ -76,14 +86,14 @@ iframe {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 100px;
-  padding: 20px;
+  margin-top: 40px;
+  padding: 50px;
   gap: 30px;
 }
 
 .winner-video {
   width: 50%;
-  height: 70vh;
+  height: 60vh;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -95,15 +105,37 @@ iframe {
   border: none;
 }
 
+/* 우승자 정보 영역 레이아웃 재구성 */
 .winner-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 45%;
+  height: 60vh;
+  padding: 20px;
 }
 
 .winner-title {
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
   color: #333;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.winner-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.spinner-container {
+  margin-bottom: 20px;
 }
 
 .winner-text {
@@ -111,6 +143,7 @@ iframe {
   line-height: 1.8;
   color: #555;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 /* 화면 크기에 따라 반응형 디자인 */
@@ -131,10 +164,12 @@ iframe {
   }
 }
 
-/* 홈 화면으로 돌아가는 버튼 스타일 */
+/* 홈으로 돌아가는 버튼에 페이드인 애니메이션 적용 */
 .back-home-container {
+  display: none; /* 기본적으로 숨겨놓기 */
   text-align: center;
   margin-top: 20px;
+  animation: fadeIn 2s ease-out forwards; /* 페이드인 애니메이션 */
 }
 
 .back-home-btn {
