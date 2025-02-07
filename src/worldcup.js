@@ -45,7 +45,7 @@
    * 우승 시 페이지를 새로고침합니다.
    */
   function winner(item) {
-    location.href = `../resources/templates/winner.html?title=${item.title}&youtubeLink=${item.youtubeLink}`;
+    location.href = `/pickme_cup/../resources/templates/winner.html?title=${item.title}&youtubeLink=${item.youtubeLink}`;
   }
 
   /**
