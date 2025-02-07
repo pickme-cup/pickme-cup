@@ -53,7 +53,6 @@ function displayNextPair() {
   if (items.length < 2) {
     if (currentRound === 1) {
       alert("최종 승자: " + items[0].title);
-      currentRound >>= 1;
       winner();
       return;
     } else {
