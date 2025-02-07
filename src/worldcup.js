@@ -40,7 +40,7 @@ function updateRoundInfo() {
 
 // 승자 처리
 function winner() {
-  location.href = "/resources/templates/winner.html";
+  location.href = "resources/templates/winner.html";
 }
 
 // 화면 그리기
