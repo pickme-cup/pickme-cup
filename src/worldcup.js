@@ -40,14 +40,14 @@ function updateRoundInfo() {
 
 // 승자 처리
 function winner() {
-  location.href = "/pickme_cup/resources/templates/winner.html";
+  location.href = "/pickme_cup/";
 }
 
 // 화면 그리기
 function displayNextPair() {
   if (!playersReady) {
-    console.log("플레이어 준비되지 않음. 대기 중...");
-    return; // 플레이어가 준비되지 않으면 실행하지 않음
+    console.log("플레이어 준비되지 않음");
+    return;
   }
 
   if (items.length < 2) {
