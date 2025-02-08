@@ -15,7 +15,7 @@
 - Google Gemini API
 - Glitch
 
-## 주요 기능
+## ✨주요 기능
 
 - **이상형 월드컵 게임**
 
