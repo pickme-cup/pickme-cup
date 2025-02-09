@@ -192,3 +192,23 @@ iframe {
 .back-home-btn:active {
   background-color: #3e8e41;
 }
+
+.carousel-control-button {
+  margin-top: 25vh;
+  margin-bottom: 25vh;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* 원형 버튼 */
+  animation: fadeIn 3s ease-out forwards; /* 페이드인 애니메이션 */
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(85%) sepia(5%) saturate(10%) hue-rotate(0deg) brightness(95%)
+    contrast(90%);
+}
