@@ -1,7 +1,6 @@
 (() => {
   let players = [];
   let items = {};
-  let playersReadyCount = 0;
   let carouselInstance;
 
   function setWinnerTitle(winner) {

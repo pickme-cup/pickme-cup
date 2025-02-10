@@ -214,9 +214,9 @@ const callModel = async ({
  *                songs: "모델이 생성한 대표곡 목록 (JSON 형식의 문자열 혹은 배열)"
  *              }
  */
-async function runModelPipeline(topics, text) {
+async function runModelChain(topics, text) {
   // 1단계: 주제와 텍스트를 이용해 설명 생성
-  const pipeline1 = async (topics, text) => {
+  const chain1 = async (topics, text) => {
     return callModel({
       prompt: `${topics}라는 주제를 가지고 ${text}에 대한 정보를 소개, 특징, 성과 등을 포함해서 5줄의 평문으로 작성해주세요. 출력 예시: 아이유(이지은)는 2008년 데뷔한 대한민국의 대표적인 싱어송라이터이자 배우입니다. 뛰어난 작사, 작곡 능력과 독보적인 음색을 바탕으로 다양한 장르의 음악을 소화하며, '좋은 날', '밤편지', 'Blueming' 등 다수의 곡을 히트시켰습니다. 드라마 '드림하이', '호텔 델루나', 영화 '브로커' 등 다양한 작품에서 안정적인 연기력을 선보이며 배우로서도 인정받았습니다. MAMA 올해의 가수상, 골든디스크 대상 등 다수의 음악 시상식에서 수상하며 글로벌 스타로 자리매김했습니다. 팬들을 향한 진심 어린 소통과 꾸준한 활동으로 많은 사랑을 받고 있으며, 음악과 연기 분야에서 끊임없이 성장하는 모습으로 대중들에게 깊은 감동과 영감을 주는 아티스트입니다.`,
       modelName: modelQueue.peek(),
@@ -229,11 +229,11 @@ async function runModelPipeline(topics, text) {
     });
   };
 
-  const description = await pipeline1(topics, text);
+  const description = await chain1(topics, text);
   console.log("Description:", description);
 
   // 2단계: 생성된 설명을 기반으로 대표곡 검색
-  const pipeline2 = async (text) => {
+  const chain2 = async (text) => {
     return callModel({
       prompt: `${text}의 내용을 바탕으로 곡을 10곡 검색하고 출력하세요.`,
       modelName: modelQueue.peek(),
@@ -253,11 +253,11 @@ async function runModelPipeline(topics, text) {
     });
   };
 
-  const title = await pipeline2(description);
+  const title = await chain2(description);
   console.log("title:", title);
 
   // 3단계: 찾지 못한 대표곡을 출력 결과에서 제외
-  const pipeline3 = async (text) => {
+  const chain3 = async (text) => {
     return callModel({
       prompt: `${text} 결과에서 곡의 타이틀 제목이 올바르지 못한 값은 제외하세요.`,
       modelName: modelQueue.peek(),
@@ -277,7 +277,7 @@ async function runModelPipeline(topics, text) {
     });
   };
 
-  const filteredTitleList = await pipeline3(title);
+  const filteredTitleList = await chain3(title);
   console.log("title:", filteredTitleList);
 
   const result = {
@@ -289,7 +289,5 @@ async function runModelPipeline(topics, text) {
   return result;
 }
 
-// 파이프라인 실행
-await runModelPipeline("KPOP", "wave to earth");
-await runModelPipeline("KPOP", "woodz");
-await runModelPipeline("KPOP", "백예린");
+// 프롬프트 체인 실행
+await runModelChain("KPOP", "wave to earth");
