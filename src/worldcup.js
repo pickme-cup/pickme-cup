@@ -45,7 +45,7 @@
    * 우승 시 페이지를 새로고침합니다.
    */
   function winner(item) {
-    const baseUrl = window.location.origin + "/pickme_cup";
+    const baseUrl = window.location.origin + "/pickme-cup";
     location.href = `${baseUrl}/resources/templates/winner.html?title=${item.title}&youtubeLink=${item.youtubeLink}`;
   }
 
